@@ -6,7 +6,7 @@ namespace JailAPI
 	public class JailApi
 	{
 		#region Services
-		public static IGuardService GuardService => new GuardService();
+		public static IGuardService GuardService => new GuardService();//
 		#endregion
 	}
 }
