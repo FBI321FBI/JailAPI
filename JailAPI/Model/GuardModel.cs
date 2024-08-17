@@ -69,7 +69,7 @@ namespace JailAPI.Model
 		{
 			Player = player;
 			PlayerPawn = player.PlayerPawn.Value;
-			Description = description is null ? "": description;
+			Description = description is null ? "" : description;
 			_guardService = new GuardService();
 		}
 

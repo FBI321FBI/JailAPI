@@ -1,5 +1,4 @@
-﻿using CounterStrikeSharp.API;
-using CounterStrikeSharp.API.Core;
+﻿using CounterStrikeSharp.API.Core;
 using JailAPI.Interface.Model;
 using JailAPI.Interface.Services;
 using JailAPI.Model;

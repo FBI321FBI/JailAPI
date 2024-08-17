@@ -34,5 +34,11 @@ namespace JailAPI.Interface.Model
 		/// Убрать окраску игрока. И удалить его из PlayerColors.
 		/// </summary>
 		public void ClearColorAndRemove();
+
+		/// <summary>
+		/// Обновить цвет игрока и применить.
+		/// </summary>
+		/// <param name="color"></param>
+		public void RefreshColorAndApply(Color color);
 	}
 }

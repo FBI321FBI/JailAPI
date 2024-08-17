@@ -15,7 +15,7 @@ namespace JailAPI.Model
 			{
 				if (playersColor is null)
 				{
-					PlayersColor = new List<PlayerColorModel>();
+					PlayersColor = new List<IPlayerColorModel>();
 				}
 				return playersColor;
 			}
@@ -92,6 +92,11 @@ namespace JailAPI.Model
 			playerPawn.Render = Color.FromArgb(255, 255, 255, 255);
 			Utilities.SetStateChanged(playerPawn, "CBaseModelEntity", "m_clrRender");
 			playersColor.Remove(this);
+		}
+
+		public void RefreshColorAndApply(Color color)
+		{
+			playerPawn.Render = Color.FromArgb(255, color);
 		}
 	}
 }
