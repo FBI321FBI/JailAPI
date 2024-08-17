@@ -15,6 +15,11 @@ namespace JailAPI.Interface.Model
 		public CCSPlayerPawn? PlayerPawn { get; }
 
 		/// <summary>
+		/// Описание охранника.
+		/// </summary>
+		public string? Description { get; init; }
+
+		/// <summary>
 		/// Передать пост.
 		/// </summary>
 		/// <param name="player"></param>

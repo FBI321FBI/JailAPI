@@ -7,9 +7,10 @@ namespace JailAPI.Services
 {
 	public class GuardService : IGuardService
 	{
-		public void CreateGuard(CCSPlayerController player, string name)
+		#region Public
+		public void CreateGuard(CCSPlayerController player, string name, string? description = null)
 		{
-			GuardModel guard = new GuardModel(player);
+			GuardModel guard = new GuardModel(player, description);
 			GuardModel.Guards.TryAdd(name, guard);
 		}
 
@@ -71,5 +72,6 @@ namespace JailAPI.Services
 				Console.WriteLine("[JailAPI] Охранник не был удалён. GuardService.DeleteGuard");
 			}
 		}
+		#endregion
 	}
 }

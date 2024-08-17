@@ -55,6 +55,8 @@ namespace JailAPI.Model
 			}
 		}
 
+		public string? Description { get; init; }
+
 		private IGuardService _guardService;
 		#endregion
 
@@ -63,10 +65,11 @@ namespace JailAPI.Model
 		/// Модель представления Simon.
 		/// </summary>
 		/// <param name="player"></param>
-		public GuardModel(CCSPlayerController? player)
+		public GuardModel(CCSPlayerController? player, string? description)
 		{
 			Player = player;
 			PlayerPawn = player.PlayerPawn.Value;
+			Description = description is null ? "" : description;
 			_guardService = new GuardService();
 		}
 

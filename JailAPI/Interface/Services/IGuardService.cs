@@ -11,7 +11,7 @@ namespace JailAPI.Interface.Services
 		/// </summary>
 		/// <param name="player"></param>
 		/// <param name="name">Имя охранника. Например "Warden".</param>
-		public void CreateGuard(CCSPlayerController player, string name);
+		public void CreateGuard(CCSPlayerController player, string name, string? description = null);
 
 		/// <summary>
 		/// Получить охранника по Player.
