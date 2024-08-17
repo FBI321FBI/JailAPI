@@ -22,6 +22,11 @@ namespace JailAPI
 		public static IRiotPlayerService RiotPlayerService => new RiotPlayerService();
 
 		/// <summary>
+		/// Сервис по работе с уникальными игроками.
+		/// </summary>
+		public static IUniquePlayerService UniquePlayerService => new UniquePlayerService();
+
+		/// <summary>
 		/// Сервис для обновления JSON файлов (списков Guards и т.д.)
 		/// </summary>
 		public static ISerializationGuardFileService SerializationFileService => new SerializationGuardsFileService();

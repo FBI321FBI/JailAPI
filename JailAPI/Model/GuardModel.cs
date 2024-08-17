@@ -1,6 +1,5 @@
 ﻿using CounterStrikeSharp.API.Core;
 using JailAPI.Interface.Model;
-using JailAPI.Interface.Services;
 using JailAPI.Services;
 using System.Collections.Concurrent;
 
@@ -57,7 +56,7 @@ namespace JailAPI.Model
 
 		public string? Description { get; init; }
 
-		private IGuardService _guardService;
+		private GuardService _guardService;
 		#endregion
 
 		#region .ctor
@@ -65,7 +64,7 @@ namespace JailAPI.Model
 		/// Модель представления Simon.
 		/// </summary>
 		/// <param name="player"></param>
-		public GuardModel(CCSPlayerController? player, string? description)
+		public GuardModel(CCSPlayerController? player, string? description = null)
 		{
 			Player = player;
 			PlayerPawn = player.PlayerPawn.Value;
@@ -78,15 +77,17 @@ namespace JailAPI.Model
 		#region Public
 		public void LeavePost()
 		{
-			var guard = _guardService.GetGuard(Player);
-			_guardService.DeleteGuard(guard);
+			if(!Guards.TryRemove(Guards.Where(x => x.Value == this).FirstOrDefault()))
+			{
+				Console.WriteLine("[JailAPI] Охранник не был удалён. GuardModel.LeavePost");
+			}
 		}
 
 		public void SubmitPost(CCSPlayerController? player)
 		{
-			var guard = _guardService.GetGuard(_guardService.GetGuard(Player));
+			var key = Guards.Where(x => x.Value == this).FirstOrDefault().Key;
 			LeavePost();
-			_guardService.CreateGuard(player, guard.Value.Key);
+			_guardService.CreateGuard(player, key);
 		}
 		#endregion
 	}

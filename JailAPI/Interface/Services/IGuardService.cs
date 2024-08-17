@@ -34,13 +34,13 @@ namespace JailAPI.Interface.Services
 		/// <summary>
 		/// Удаляет охранника.
 		/// </summary>
-		/// <param name="name">Имя охранника, которое вы дали. Например "Warden".</param>
+		/// <param name="name">Ключ охранника, который вы дали. Например "Warden".</param>
 		public void DeleteGuard(string name);
 
 		/// <summary>
 		/// Удаляет охранника.
 		/// </summary>
-		/// <param name="guard">Охранник.</param>
+		/// <param name="guard">Модель охранника.</param>
 		public void DeleteGuard(IGuardModel guard);
 	}
 }
