@@ -92,13 +92,13 @@ namespace JailAPI.Interface.Services
 		public void ClearColorAndRemoveForAll();
 
 		/// <summary>
-		/// Обновляет цвет игроку.
+		/// Обновляет цвет игроку и применить.
 		/// </summary>
 		/// <param name="player"></param>
 		public void RefreshColorForPlayerAndApply(CCSPlayerController player, Color color);
 
 		/// <summary>
-		/// Обновляет цвет игроку по модельке.
+		/// Обновляет цвет игроку по модельке и применить.
 		/// </summary>
 		/// <param name="model"></param>
 		public void RefreshColorForModelAndApply(IPlayerColorModel model, Color color);
