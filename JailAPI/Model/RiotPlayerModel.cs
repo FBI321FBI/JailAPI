@@ -5,23 +5,23 @@ using System.Drawing;
 
 namespace JailAPI.Model
 {
-	public class PlayerColorModel : IPlayerColorModel
+	public class RiotPlayerModel : IRiotPlayerModel
 	{
 		#region Prop
-		private static List<IPlayerColorModel>? playersColor = null;
-		public static List<IPlayerColorModel>? PlayersColor
+		private static List<IRiotPlayerModel>? playersRiot = null;
+		public static List<IRiotPlayerModel>? PlayersRiot
 		{
 			get
 			{
-				if (playersColor is null)
+				if (playersRiot is null)
 				{
-					PlayersColor = new List<IPlayerColorModel>();
+					PlayersRiot = new List<IRiotPlayerModel>();
 				}
-				return playersColor;
+				return playersRiot;
 			}
 			private set
 			{
-				playersColor = value;
+				playersRiot = value;
 			}
 		}
 
@@ -63,19 +63,19 @@ namespace JailAPI.Model
 				color = value;
 			}
 		}
-		#endregion
+        #endregion
 
-		#region .ctor
-		public PlayerColorModel(CCSPlayerController player, Color color)
-		{
+        #region .ctor
+        public RiotPlayerModel(CCSPlayerController player, Color color)
+        {
 			Player = player;
 			PlayerPawn = player.PlayerPawn.Value;
 			Color = color;
 		}
-		#endregion
+        #endregion
 
-		#region Public
-		public void ApplyColoring()
+        #region Public
+        public void ApplyColoring()
 		{
 			playerPawn.Render = Color.FromArgb(255, color);
 			Utilities.SetStateChanged(playerPawn, "CBaseModelEntity", "m_clrRender");
@@ -91,7 +91,7 @@ namespace JailAPI.Model
 		{
 			playerPawn.Render = Color.FromArgb(255, 255, 255, 255);
 			Utilities.SetStateChanged(playerPawn, "CBaseModelEntity", "m_clrRender");
-			playersColor.Remove(this);
+			playersRiot.Remove(this);
 		}
 
 		public void RefreshColorAndApply(Color color)

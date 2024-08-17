@@ -12,6 +12,16 @@ namespace JailAPI
 		public static IGuardService GuardService => new GuardService();
 
 		/// <summary>
+		/// Сервис по работе с цветными игроками.
+		/// </summary>
+		public static IPlayerColorService PlayerColorService => new PlayerColorService();
+
+		/// <summary>
+		/// Сервис по работе с бунтовщиками.
+		/// </summary>
+		public static IRiotPlayerService RiotPlayerService => new RiotPlayerService();
+
+		/// <summary>
 		/// Сервис для обновления JSON файлов (списков Guards и т.д.)
 		/// </summary>
 		public static ISerializationGuardFileService SerializationFileService => new SerializationGuardsFileService();

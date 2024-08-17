@@ -97,7 +97,7 @@ namespace JailAPI.Services
 			var playersColor = PlayerColorModel.PlayersColor.Where(x => x.Color == color).ToList();
 			if (playersColor is null)
 			{
-				Console.WriteLine("[JailAPI] [NULL] Цвет игрока не смог примениться на игрока. PlayerColorService.ClearColorAndRemoveByColor.");
+				Console.WriteLine("[JailAPI] [NULL] Цвет игрока не смог примениться на игрока. PlayerColorService.ClearColorByColor.");
 				return;
 			}
 
@@ -123,8 +123,8 @@ namespace JailAPI.Services
 
 		public IPlayerColorModel? GetPlayerColorModelByPlayer(CCSPlayerController player)
 		{
-			var playersColor = PlayerColorModel.PlayersColor.Where(x => x.Player == player).FirstOrDefault();
-			return playersColor;
+			var playerColor = PlayerColorModel.PlayersColor.Where(x => x.Player == player).FirstOrDefault();
+			return playerColor;
 		}
 
 		public List<IPlayerColorModel>? GetPlayerColorModelByColor(Color color)
