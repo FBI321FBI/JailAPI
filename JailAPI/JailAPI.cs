@@ -27,6 +27,11 @@ namespace JailAPI
 		public static IUniquePlayerService UniquePlayerService => new UniquePlayerService();
 
 		/// <summary>
+		/// Сервис по работе с фридейщиками.
+		/// </summary>
+		public static IFreedayPlayerService FreedayPlayerService => new FreedayPlayerService();
+
+		/// <summary>
 		/// Сервис по работе с менюшками.
 		/// </summary>
 		public static IMenuService MenuService => new MenuService();
