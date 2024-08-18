@@ -10,7 +10,7 @@ namespace JailAPI.Services
 	{
 		public void ApplyColoring(CCSPlayerController player)
 		{
-			var riotPlayer = RiotPlayerModel.PlayersRiot.Where(x => x.Player == player).FirstOrDefault();
+			var riotPlayer = RiotPlayerModel.RiotPlayers.Where(x => x.Player == player).FirstOrDefault();
 			if (riotPlayer is null)
 			{
 				Console.WriteLine("[JailAPI] [NULL] Цвет игрока не смог примениться на игрока. RiotPlayerService.ApplyColoring.");
@@ -38,7 +38,7 @@ namespace JailAPI.Services
 
 		public void ClearColor(CCSPlayerController player)
 		{
-			var riotPlayer = RiotPlayerModel.PlayersRiot.Where(x => x.Player == player).FirstOrDefault();
+			var riotPlayer = RiotPlayerModel.RiotPlayers.Where(x => x.Player == player).FirstOrDefault();
 			if (riotPlayer is null)
 			{
 				Console.WriteLine("[JailAPI] [NULL] Цвет игрока не смог примениться на игрока. RiotPlayerService.ClearColor.");
@@ -51,7 +51,7 @@ namespace JailAPI.Services
 
 		public void ClearColorAndRemove(CCSPlayerController player)
 		{
-			var riotPlayer = RiotPlayerModel.PlayersRiot.Where(x => x.Player == player).FirstOrDefault();
+			var riotPlayer = RiotPlayerModel.RiotPlayers.Where(x => x.Player == player).FirstOrDefault();
 			if (riotPlayer is null)
 			{
 				Console.WriteLine("[JailAPI] [NULL] Цвет игрока не смог примениться на игрока. RiotPlayerService.ClearColorAndRemove.");
@@ -64,7 +64,7 @@ namespace JailAPI.Services
 
 		public void ClearColorAndRemoveByColor(Color color)
 		{
-			var riotPlayers = RiotPlayerModel.PlayersRiot.Where(x => x.Color == color).ToList();
+			var riotPlayers = RiotPlayerModel.RiotPlayers.Where(x => x.Color == color).ToList();
 			if (riotPlayers is null)
 			{
 				Console.WriteLine("[JailAPI] [NULL] Цвет игрока не смог примениться на игрока. RiotPlayerService.ClearColorAndRemoveByColor.");
@@ -79,7 +79,7 @@ namespace JailAPI.Services
 
 		public void ClearColorAndRemoveForAll()
 		{
-			foreach (var riotPlayers in RiotPlayerModel.PlayersRiot)
+			foreach (var riotPlayers in RiotPlayerModel.RiotPlayers)
 			{
 				riotPlayers.ClearColorAndRemove();
 			}
@@ -87,7 +87,7 @@ namespace JailAPI.Services
 
 		public void ClearColorByColor(Color color)
 		{
-			var riotPlayers = RiotPlayerModel.PlayersRiot.Where(x => x.Color == color).ToList();
+			var riotPlayers = RiotPlayerModel.RiotPlayers.Where(x => x.Color == color).ToList();
 			if (riotPlayers is null)
 			{
 				Console.WriteLine("[JailAPI] [NULL] Цвет игрока не смог примениться на игрока. RiotPlayerService.ClearColorByColor.");
@@ -102,7 +102,7 @@ namespace JailAPI.Services
 
 		public void ClearColorForAll()
 		{
-			foreach (var riotPlayer in RiotPlayerModel.PlayersRiot)
+			foreach (var riotPlayer in RiotPlayerModel.RiotPlayers)
 			{
 				riotPlayer.ClearColor();
 			}
@@ -111,7 +111,7 @@ namespace JailAPI.Services
 		public void CreateRiotPlayer(CCSPlayerController player, Color color)
 		{
 			IRiotPlayerModel riotPlayer = new RiotPlayerModel(player, color);
-			foreach (var _riotPlayer in RiotPlayerModel.PlayersRiot)
+			foreach (var _riotPlayer in RiotPlayerModel.RiotPlayers)
 			{
 				if (_riotPlayer.Player == player)
 				{
@@ -119,12 +119,12 @@ namespace JailAPI.Services
 					break;
 				}
 			}
-			RiotPlayerModel.PlayersRiot.Add(riotPlayer);
+			RiotPlayerModel.RiotPlayers.Add(riotPlayer);
 		}
 
 		public IRiotPlayerModel GetRiotPlayerModelByPlayer(CCSPlayerController player)
 		{
-			var riotPlayer = RiotPlayerModel.PlayersRiot.Where(x => x.Player == player).FirstOrDefault();
+			var riotPlayer = RiotPlayerModel.RiotPlayers.Where(x => x.Player == player).FirstOrDefault();
 			return riotPlayer;
 		}
 
