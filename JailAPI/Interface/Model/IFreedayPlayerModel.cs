@@ -1,20 +1,9 @@
-﻿using CounterStrikeSharp.API.Core;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace JailAPI.Interface.Model
 {
-	public interface IRiotPlayerModel
+	public interface IFreedayPlayerModel : IPlayerModel
 	{
-		/// <summary>
-		/// Игрок.
-		/// </summary>
-		public CCSPlayerController? Player { get; }
-
-		/// <summary>
-		/// Пешка игрока.
-		/// </summary>
-		public CCSPlayerPawn? PlayerPawn { get; }
-
 		/// <summary>
 		/// Цвет.
 		/// </summary>
@@ -31,7 +20,7 @@ namespace JailAPI.Interface.Model
 		public void ClearColor();
 
 		/// <summary>
-		/// Убрать окраску игрока. И удалить его из RiotPlayers.
+		/// Убрать окраску игрока. И удалить его из FreeDayPlayers.
 		/// </summary>
 		public void ClearColorAndRemove();
 

@@ -5,27 +5,30 @@ using System.Drawing;
 
 namespace JailAPI.Model
 {
-	public class RiotPlayerModel : IRiotPlayerModel
+	public class FreedayPlayerModel : IFreedayPlayerModel
 	{
 		#region Prop
-		private static List<IRiotPlayerModel>? riotPlayers = null;
-		public static List<IRiotPlayerModel>? RiotPlayers
+
+		private static List<IFreedayPlayerModel>? freedayPlayers = null;
+
+		public static List<IFreedayPlayerModel>? FreedayPlayers
 		{
 			get
 			{
-				if (riotPlayers is null)
+				if (freedayPlayers is null)
 				{
-					RiotPlayers = new List<IRiotPlayerModel>();
+					FreedayPlayers = new List<IFreedayPlayerModel>();
 				}
-				return riotPlayers;
+				return freedayPlayers;
 			}
 			private set
 			{
-				riotPlayers = value;
+				freedayPlayers = value;
 			}
 		}
 
 		private CCSPlayerController? player = null;
+
 		public CCSPlayerController? Player
 		{
 			get
@@ -39,6 +42,7 @@ namespace JailAPI.Model
 		}
 
 		private CCSPlayerPawn? playerPawn = null;
+
 		public CCSPlayerPawn? PlayerPawn
 		{
 			get
@@ -52,6 +56,7 @@ namespace JailAPI.Model
 		}
 
 		private Color color;
+
 		public Color Color
 		{
 			get
@@ -63,19 +68,23 @@ namespace JailAPI.Model
 				color = value;
 			}
 		}
-        #endregion
 
-        #region .ctor
-        public RiotPlayerModel(CCSPlayerController player, Color color)
-        {
+		#endregion Prop
+
+		#region .ctor
+
+		public FreedayPlayerModel(CCSPlayerController player, Color color)
+		{
 			Player = player;
 			PlayerPawn = player.PlayerPawn.Value;
 			Color = color;
 		}
-        #endregion
 
-        #region Public
-        public void ApplyColoring()
+		#endregion .ctor
+
+		#region Public
+
+		public void ApplyColoring()
 		{
 			playerPawn.Render = Color.FromArgb(255, color);
 			Utilities.SetStateChanged(playerPawn, "CBaseModelEntity", "m_clrRender");
@@ -91,7 +100,7 @@ namespace JailAPI.Model
 		{
 			playerPawn.Render = Color.FromArgb(255, 255, 255, 255);
 			Utilities.SetStateChanged(playerPawn, "CBaseModelEntity", "m_clrRender");
-			riotPlayers.Remove(this);
+			freedayPlayers.Remove(this);
 		}
 
 		public void RefreshColorAndApply(Color color)
@@ -99,6 +108,7 @@ namespace JailAPI.Model
 			playerPawn.Render = Color.FromArgb(255, color);
 			Utilities.SetStateChanged(playerPawn, "CBaseModelEntity", "m_clrRender");
 		}
-		#endregion
+
+		#endregion Public
 	}
 }
