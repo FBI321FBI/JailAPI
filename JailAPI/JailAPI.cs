@@ -27,6 +27,11 @@ namespace JailAPI
 		public static IUniquePlayerService UniquePlayerService => new UniquePlayerService();
 
 		/// <summary>
+		/// Сервис по работе с менюшками.
+		/// </summary>
+		public static IMenuService MenuService => new MenuService();
+
+		/// <summary>
 		/// Сервис для обновления JSON файлов (списков Guards и т.д.)
 		/// </summary>
 		public static ISerializationGuardFileService SerializationFileService => new SerializationGuardsFileService();
