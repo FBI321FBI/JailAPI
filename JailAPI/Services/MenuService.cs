@@ -12,7 +12,7 @@ namespace JailAPI.Services
 		/// </summary>
 		/// <param name="menu"></param>
 		/// <param name="name"></param>
-		public void AddMenu(IMenuModel menu, string name)
+		public void AddMenu(ref IMenuModel menu, string name)
 		{
 			if(!MenuModel.Menus.TryAdd(name, menu))
 			{

@@ -10,7 +10,7 @@ namespace JailAPI.Interface.Services
 		/// </summary>
 		/// <param name="menu"></param>
 		/// <param name="name"></param>
-		public void AddMenu(IMenuModel menu, string name);
+		public void AddMenu(ref IMenuModel menu, string name);
 
 		/// <summary>
 		/// Удаление меню из списка API.
